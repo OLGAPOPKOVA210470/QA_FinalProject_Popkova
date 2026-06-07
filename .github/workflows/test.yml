@@ -30,13 +30,3 @@ jobs:
       run: |
         pytest tests/test_api_simple.py -v
         pytest tests/test_meal_plan_api.py -v
-
-    - name: Generate Allure report
-      run: |
-        pip install allure-pytest
-        pytest --alluredir=allure-results
-    - name: Upload Allure report
-      uses: actions/upload-artifact@v3
-      with:
-        name: allure-report
-        path: allure-results
