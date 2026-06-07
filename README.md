@@ -63,3 +63,4 @@ pytest tests/test_meal_plan_api.py -v
 1. GitLab: регистрация невозможна из-за гео-ограничений. Использован GitHub Actions.
 2. UI-тесты: ошибка ERR_CONNECTION_RESET на стенде. UI проверен вручную.
 
+
