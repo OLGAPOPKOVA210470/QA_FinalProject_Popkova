@@ -24,10 +24,10 @@ jobs:
         BASE_URL: ${{ secrets.BASE_URL }}
         TANDOOR_TOKEN: ${{ secrets.TANDOOR_TOKEN }}
       run: |
-        pytest tests/test_api_simple.py -v
-        pytest tests/test_meal_plan_api.py -v
-        pytest tests/test_api_shopping_list.py -v
-        pytest tests/test_api_delete_meal_plan.py -v
+        pytest tests/test_api_simple.py -v --alluredir=allure-results
+        pytest tests/test_meal_plan_api.py -v --alluredir=allure-results
+        pytest tests/test_api_shopping_list.py -v --alluredir=allure-results
+        pytest tests/test_api_delete_meal_plan.py -v --alluredir=allure-results
 
     - name: Upload Allure results
       uses: actions/upload-artifact@v4
