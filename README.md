@@ -18,50 +18,56 @@
 ### API тесты (выполнены)
 1. test_api_connection — проверка соединения с API
 2. test_create_meal_plan — создание плана питания
+3. test_get_shopping_list — получение списка покупок
+4. test_create_and_delete_meal_plan_via_api — удаление плана питания
 
-### UI тесты (не выполнены)
-Ошибка ERR_CONNECTION_RESET на тестовом стенде. UI проверен вручную.
+### UI тесты (выполнены)
+1. test_open_tandoor — открытие главной страницы
+2. test_login_and_open_meal_plan — авторизация и переход в Meal Plan
 
 ## Установка и запуск
 
 ### 1. Клонировать репозиторий
+```bash
 git clone https://github.com/OLGAPOPKOVA210470/QA_FinalProject_Popkova.git
 cd QA_FinalProject_Popkova
-
-### 2. Создать виртуальное окружение
+2. Создать виртуальное окружение
+bash
 python -m venv venv
 venv\Scripts\activate
-
-### 3. Установить зависимости
+3. Установить зависимости
+bash
 pip install -r requirements.txt
-
-### 4. Создать файл .env
+4. Создать файл .env
+env
 BASE_URL=https://tandoor.vs1.srv.eduson.tv
 TANDOOR_USERNAME=your_email@example.com
 TANDOOR_PASSWORD=your_password
 TANDOOR_TOKEN=your_token
-
-### 5. Запустить тесты
+5. Запустить тесты
+bash
 pytest tests/ -v
-pytest tests/test_meal_plan_api.py -v
-
-## CI/CD
+CI/CD
 Автоматический запуск API тестов через GitHub Actions при каждом push.
 
-## Как получить API-токен
+Как получить API-токен
+Зайдите на https://tandoor.vs1.srv.eduson.tv
 
-1. Зайдите на https://tandoor.vs1.srv.eduson.tv
-2. Войдите под своей учётной записью
-3. Нажмите на аватар → Настройки (Settings)
-4. В левом меню выберите API
-5. Нажмите Create Token
-6. Назовите токен (например, "Diplom")
-7. Выберите права: read и write
-8. Скопируйте токен и вставьте в файл .env
+Войдите под своей учётной записью
 
-## Известные проблемы
-1. GitLab: регистрация невозможна из-за гео-ограничений. Использован GitHub Actions.
-2. UI-тесты: ошибка ERR_CONNECTION_RESET на стенде. UI проверен вручную. 
+Нажмите на аватар → Настройки (Settings)
 
+В левом меню выберите API
 
+Нажмите Create Token
 
+Назовите токен (например, "Diplom")
+
+Выберите права: read и write
+
+Скопируйте токен и вставьте в файл .env
+
+Известные проблемы
+GitLab: регистрация невозможна из-за гео-ограничений. Использован GitHub Actions.
+
+UI-тесты в CI выполняются в headless-режиме (без графического интерфейса), локально все тесты проходят успешно.
