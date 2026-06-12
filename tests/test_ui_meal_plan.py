@@ -1,3 +1,4 @@
+'@pytest.mark.ui'  
 import pytest
 import allure
 from selenium import webdriver

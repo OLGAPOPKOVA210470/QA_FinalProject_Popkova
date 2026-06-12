@@ -1,3 +1,4 @@
+'@pytest.mark.api'  
 import pytest
 import requests
 import os
