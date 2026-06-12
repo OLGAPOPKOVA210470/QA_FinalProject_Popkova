@@ -1,6 +1,7 @@
 import pytest
 import requests
 import datetime
+import os
 import allure
 from dotenv import load_dotenv
 
