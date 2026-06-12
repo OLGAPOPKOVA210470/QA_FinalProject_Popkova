@@ -28,6 +28,40 @@
 ## Установка и запуск
 
 ### 1. Клонировать репозиторий
-```bash
 git clone https://github.com/OLGAPOPKOVA210470/QA_FinalProject_Popkova.git
 cd QA_FinalProject_Popkova
+
+### 2. Создать виртуальное окружение
+python -m venv venv
+venv\Scripts\activate
+
+### 3. Установить зависимости
+pip install -r requirements.txt
+
+### 4. Создать файл .env
+BASE_URL=https://tandoor.vs1.srv.eduson.tv
+TANDOOR_USERNAME=your_email@example.com
+TANDOOR_PASSWORD=your_password
+TANDOOR_TOKEN=your_token
+
+### 5. Запустить тесты
+pytest tests/ -v
+
+## CI/CD
+Автоматический запуск API тестов через GitHub Actions при каждом push.
+
+## Как получить API-токен
+
+1. Зайдите на https://tandoor.vs1.srv.eduson.tv
+2. Войдите под своей учётной записью
+3. Нажмите на аватар → Настройки (Settings)
+4. В левом меню выберите API
+5. Нажмите Create Token
+6. Назовите токен (например, "Diplom")
+7. Выберите права: read и write
+8. Скопируйте токен и вставьте в файл .env
+
+## Известные проблемы
+
+1. GitLab: регистрация невозможна из-за гео-ограничений. Использован GitHub Actions.
+2. UI-тесты в CI выполняются в headless-режиме (без графического интерфейса), локально все тесты проходят успешно.
