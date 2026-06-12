@@ -1,4 +1,4 @@
-'@pytest.mark.api'  
+import pytest
 import requests
 import os
 from dotenv import load_dotenv
@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+@pytest.mark.api
 def test_api_connection():
     """Verify API is accessible and token is valid"""
     token = os.getenv("TANDOOR_TOKEN")

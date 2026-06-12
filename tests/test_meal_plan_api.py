@@ -1,7 +1,5 @@
-'@pytest.mark.api'  
 import pytest
 import requests
-import os
 import datetime
 import allure
 from dotenv import load_dotenv
@@ -9,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+@pytest.mark.api
 @allure.feature("Meal Plan")
 @allure.story("Create meal plan")
 def test_create_meal_plan():
