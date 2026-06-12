@@ -37,9 +37,9 @@ pip install -r requirements.txt
 
 ### 4. Создать файл .env
 BASE_URL=https://tandoor.vs1.srv.eduson.tv
-TANDOOR_USERNAME=popkovaolga1970@gmail.com
-TANDOOR_PASSWORD=Testirovanie12345
-TANDOOR_TOKEN=tda_a6372c61_668e_4ccf_906a_67c35c9b5d4a
+TANDOOR_USERNAME=your_email@example.com
+TANDOOR_PASSWORD=your_password
+TANDOOR_TOKEN=your_token
 
 ### 5. Запустить тесты
 pytest tests/ -v
