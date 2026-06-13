@@ -22,26 +22,27 @@ TANDOOR_PROJECT/
 ├── api/
 │   └── client.py
 ├── data/
-│   ├── recipe_urls.json
-│   └── recipe_ids.json
+│   └── recipe_urls.json
 ├── pages/
 │   ├── base_page.py
 │   ├── header_component.py
 │   └── login_page.py
 ├── tests/
+│   ├── test_api_client.py
+│   ├── test_api_delete_meal_plan.py
+│   ├── test_api_shopping_list.py
 │   ├── test_api_simple.py
 │   ├── test_meal_plan_api.py
-│   ├── test_api_shopping_list.py
-│   ├── test_api_delete_meal_plan.py
-│   ├── test_api_client.py
-│   ├── test_ui_simple.py
+│   ├── test_ui_full_meal_plan.py
 │   ├── test_ui_meal_plan.py
-│   └── test_ui_full_meal_plan.py
-├── generate_test_data.py
+│   ├── test_ui_shopping_list.py
+│   └── test_ui_simple.py
 ├── conftest.py
+├── generate_test_data.py
 ├── pytest.ini
 ├── requirements.txt
 ├── .env
+├── .gitignore
 └── README.md
 ```
 
@@ -59,6 +60,7 @@ TANDOOR_PROJECT/
 1. `test_open_tandoor` — открытие главной страницы
 2. `test_login_and_open_meal_plan` — авторизация и переход в Meal Plan
 3. `test_full_cycle_meal_plan` — полный цикл: создание, проверка, удаление плана через UI
+4. `test_shopping_list_page` — проверка доступности страницы Shopping List
 
 ## Установка и запуск
 
