@@ -1,0 +1,39 @@
+name: Run API and UI Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install allure-pytest
+
+      - name: Run API tests with Allure
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          TANDOOR_TOKEN: ${{ secrets.TANDOOR_TOKEN }}
+          TANDOOR_USERNAME: ${{ secrets.TANDOOR_USERNAME }}
+          TANDOOR_PASSWORD: ${{ secrets.TANDOOR_PASSWORD }}
+        run: |
+          pytest tests/ -m api --alluredir=allure-results -v
+
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
