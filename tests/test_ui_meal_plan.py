@@ -33,13 +33,16 @@ class TestUIMealPlan:
         with allure.step("Login with credentials"):
             username = os.getenv("TANDOOR_USERNAME")
             password = os.getenv("TANDOOR_PASSWORD")
-            driver.find_element(By.ID, "id_login").send_keys(username)
+            WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.ID, "id_login"))
+            ).send_keys(username)
             driver.find_element(By.ID, "id_password").send_keys(password)
             driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
             WebDriverWait(driver, 10).until(EC.url_contains("/"))
         
         with allure.step("Navigate to Meal Plan"):
             driver.get("https://tandoor.vs1.srv.eduson.tv/plan")
+            WebDriverWait(driver, 10).until(EC.url_contains("plan"))
         
         with allure.step("Verify Meal Plan page"):
             assert "plan" in driver.current_url
