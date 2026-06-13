@@ -4,7 +4,6 @@ from api.client import TandoorAPIClient
 
 
 def generate_test_data():
-    """Импортирует рецепты по ссылкам и сохраняет их ID"""
     client = TandoorAPIClient()
     
     data_path = os.path.join(os.path.dirname(__file__), "data", "recipe_urls.json")
