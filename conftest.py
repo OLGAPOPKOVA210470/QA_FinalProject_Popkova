@@ -24,7 +24,6 @@ def get_or_create_recipe(api_client):
         print(f"Using existing recipe with ID: {recipe_id}")
         return recipe_id
     else:
-        # Импортируем рецепт из тестовых данных
         import json
         data_path = os.path.join(os.path.dirname(__file__), "data", "recipe_urls.json")
         with open(data_path, "r") as f:
