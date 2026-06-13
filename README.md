@@ -13,6 +13,33 @@
 - Allure
 - GitHub Actions
 
+## Структура проекта
+```TANDOOR_PROJECT/
+├── .github/workflows/
+│ └── main.yml
+├── api/
+│ └── client.py
+├── data/
+│ ├── recipe_urls.json
+│ └── recipe_ids.json
+├── pages/
+│ ├── base_page.py
+│ ├── header_component.py
+│ └── login_page.py
+├── tests/
+│ ├── test_api_simple.py
+│ ├── test_meal_plan_api.py
+│ ├── test_api_shopping_list.py
+│ ├── test_api_delete_meal_plan.py
+│ ├── test_ui_simple.py
+│ └── test_ui_meal_plan.py
+├── generate_test_data.py
+├── conftest.py
+├── pytest.ini
+├── requirements.txt
+├── .env
+└── README.md```
+
 ## Реализованные сценарии
 
 ### API тесты (выполнены)
@@ -65,3 +92,5 @@ pytest tests/ -v
 
 1. GitLab: регистрация невозможна из-за гео-ограничений. Использован GitHub Actions.
 2. UI-тесты в CI выполняются в headless-режиме (без графического интерфейса), локально все тесты проходят успешно.
+
+
