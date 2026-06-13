@@ -10,18 +10,15 @@ load_dotenv()
 
 @pytest.fixture
 def api_client():
-    """Фикстура: возвращает API клиента"""
     return TandoorAPIClient()
 
 
 @pytest.fixture
 def get_or_create_recipe(api_client):
-    """Фикстура: находит существующий рецепт или создаёт новый через API"""
     recipes = api_client.get_recipes()
     
     if recipes.get("results"):
         recipe_id = recipes["results"][0]["id"]
-        print(f"Using existing recipe with ID: {recipe_id}")
         return recipe_id
     else:
         import json
@@ -31,13 +28,11 @@ def get_or_create_recipe(api_client):
         
         response = api_client.import_recipe_by_url(urls[0])
         recipe_id = response.get("id")
-        print(f"Created new recipe with ID: {recipe_id}")
         return recipe_id
 
 
 @pytest.fixture
 def driver():
-    """Фикстура: возвращает драйвер браузера с поддержкой headless для CI"""
     options = Options()
     if os.getenv("CI"):
         options.add_argument("--headless=new")
