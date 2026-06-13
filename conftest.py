@@ -18,14 +18,13 @@ def api_client():
 
 @pytest.fixture
 def driver():
-    """Фикстура для браузера (headless отключён для отладки)"""
+    """Фикстура для браузера с поддержкой headless для CI"""
     options = Options()
     
-    # Headless временно отключён для отладки
-    # if os.getenv("CI"):
-    #     options.add_argument("--headless=new")
-    #     options.add_argument("--no-sandbox")
-    #     options.add_argument("--disable-dev-shm-usage")
+    if os.getenv("CI"):
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
     
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--disable-gpu")
@@ -35,7 +34,6 @@ def driver():
     
     yield driver
     
-    time.sleep(10)  # Пауза 10 секунд перед закрытием браузера
     driver.quit()
 
 
